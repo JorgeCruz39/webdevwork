@@ -7,4 +7,4 @@ My experience with computers is pretty average I would say I am a student of com
 
 What I think Ill learn in this course is creating something more interactive. Being that the apps we will be building are web based I think that there will be an aspect of being able to use it "on the go" rather than only getting functionality from a terminal environment.  Hopefully what I learn here in this class can be used later down the road in my career.   
 
-[Picture of me and my boys at work](./assets/chesterTechTeam.jpeg)
+[Picture of me and my boys at work](/assets/chesterTechTeam.jpeg)
