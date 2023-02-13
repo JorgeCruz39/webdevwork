@@ -109,34 +109,12 @@
                         <div class="panel">
                            
                                 <div class="tabs is-boxed">
-                                    <ul>
-                                        <li class="is-active">
+                                    <ul>  
+                                        <li v-for="tab in tabs" :class="{ 'is-active': currentTab == tab.name }" @click="currentTab = tab.name" >
                                             <a>
-                                                <span class="icon is-small"><i class="fas fa-bed"
-                                                        aria-hidden="true"></i></span>
-                                                <span>Current</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a>
-                                                <span class="icon is-small"><i class="fas fa-music"
-                                                        aria-hidden="true"></i></span>
-                                                <span>Next</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a>
-                                                <span class="icon is-small"><i class="fas fa-film"
-                                                        aria-hidden="true"></i></span>
-                                                <span>Overdue</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a>
-                                                <span class="icon is-small"><i class="fas fa-film"
-                                                        aria-hidden="true"></i></span>
-                                                <span>Expired</span>
-                                            </a>
+                                                <span class="icon is-small"><i :class="tab.icon"></i></span>
+                                                <span>{{ tab.name }}</span>
+                                              </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -291,8 +269,9 @@
                                 General
                             </p>
                             <ul class="menu-list">
-                                <li><a>Dashboard</a></li>
-                                <li><a>Customers</a></li>
+                                <li v-for="content in tableofContents" :class="{ 'is-active': currentTableofContents == tableofContents.name }" @click="currentTableofContents = tableofContents.name" >
+                                    <a>
+                                        <span>{{ tableofContents.name }}</span>
                             </ul>
                             <p class="menu-label">
                                 Administration
@@ -325,6 +304,65 @@
             </div>
         </div>
     </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+
+        Vue.createApp({
+            data() {
+                return {
+                    isMenuActive: false,
+                    currentTab: 'All',
+                    tabs: [
+                        { name: 'All', icon: 'fas fa-list' },
+                        { name: 'Completed', icon: 'fas fa-check' },
+                        { name: 'Current', icon: 'fas fa-spinner' },
+                        { name: 'Overdue', icon: 'fas fa-exclamation-triangle' },
+                        { name: 'Trash', icon: 'fas fa-trash'}
+                        /*  calendar, calendar-day, calendar-times, clipboard-list*/
+                    ],
+                    items: [
+                        { name: 'Learn Vue', completed: true },
+                        { name: 'Learn React', completed: false },
+                        { name: 'Learn Angular', completed: false },
+                        { name: 'Learn Svelte', completed: false },
+                        { name: 'Learn Ember', completed: false },
+
+                    ],
+                    currentTableofContents: 'Manage Your Team',
+                    tableofContents: [
+                        { name: 'Dashboard' },
+                        { name: 'Customers' },
+                        { name: 'Team Settings' },
+                        { name: 'Manage Your Team' },
+                        { name: 'Members' },
+                        { name: 'Plugins' },
+                        { name: 'Add a member' },
+                        { name: 'Invitations' },
+                        { name: 'Cloud Storage Environment Settings' },
+                        { name: 'Authentication' },
+                        { name: 'Payments' },
+                        { name: 'Transfers' },
+                        { name: 'Balance' },
+                    ]
+                }
+            },
+            methods: {
+                shouldShow(item) {
+                    if (this.currentTab === 'All') return true
+                    if (this.currentTab === 'Completed' && item.completed) return true
+                    if (this.currentTab === 'Current' && !item.completed) return true
+                    return false
+                },
+            }
+        }).mount('body')
+    </script>
+    
+
+
+    <!-- END OF MAIN CONTENT 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>    
     <script>
         $(function(){
@@ -340,7 +378,9 @@
             });
             
         })
-    </script>
+    </script>-->
+
+
 </body>
 
 </html>
