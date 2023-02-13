@@ -1,0 +1,17 @@
+{
+  "name": "webdevwork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "license": "BSD",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JorgeCruz39/webdevwork.git"
+  }
+  
+}
