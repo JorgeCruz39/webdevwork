@@ -1,9 +1,21 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <h1 class="title">
+      This is a home page
+    </h1>
   </main>
 </template>
+
+
+<style>
+@media (min-width: 1024px) {
+  .title {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+</style>
