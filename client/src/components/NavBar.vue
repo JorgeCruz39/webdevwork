@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
+import loginBadge from './loginBadge.vue';  // This is the only line I added
 
 
 </script>
-
-
 
 <template>
     <nav class="navbar is-primary">
@@ -24,6 +23,7 @@ import { RouterLink } from 'vue-router';
             <div class="navbar-start">
                 <RouterLink class="navbar-item" to="/">Home</RouterLink>
                 <RouterLink class="navbar-item" to="/about">About</RouterLink>
+                <RouterLink class="navbar-item" to="/products">Products</RouterLink>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <div class="navbar-link">
                         Docs
@@ -41,10 +41,11 @@ import { RouterLink } from 'vue-router';
                 </div>
             </div>
             <div class="navbar-end">
+                <loginBadge/>
                 <div class="navbar-item">
                     <div class="field is-grouped">
                         <div class="buttons">
-                            <button class="bd-tw-button button">
+                            <button class="bd-tw-button button is-primary">
                                 <span class="icon">
                                     <i class="fab fa-twitter"></i>
                                 </span>
